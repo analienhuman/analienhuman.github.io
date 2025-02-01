@@ -1,13 +1,139 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      alien blog
-    </title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1>
-  </head>
-  <body>
-    Welcome to my blog
-  </body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+        <title>alien human</title>
+    </head>
+    <body>
+        <div class="main">
+            <!-- A about blog and me div-->
+            <div class="about">
+                <div class="about-div">
+                    <h1 style="font-size: 3.3em;">
+                        Hello!!
+                        <span style="font-weight: 400;">I'm vishnu</span>
+                    </h1>
+                    <p>A mechanical engineer by education and a full-stack developer by profession. I'm passionate about cosmology and love exploring the big questions about the universe. Always thinking, always questioning</p>
+                </div>
+            </div>
+            <!-- blog description -->
+            <div class="blog-description">
+                <div class="description">
+                    This blog is a place where I document my thoughts on cosmology, and the mysteries of the universe. I explore unconventional ideas, try to question existing theories, and attempt to develop new perspectives on fundamental questions about reality. Whether you're a science enthusiast or just someone curious about the cosmos, I hope my writings inspire you to think beyond the known.
+                </div>
+            </div>
+            <div id="posts-container" class="posts"></div>
+            <!-- Pagination Controls -->
+            <div class="pagination">
+                <button id="prev" disabled>Prev</button>
+                <div id="page-buttons"></div>
+                <button id="next">Next</button>
+            </div>
+        </div>
+        <footer>
+            <p>© vishnu gs 2025. All rights reserved.</p>
+            <p>
+                This work is licensed under a
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+                    Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License
+                </a>
+                .
+            </p>
+            <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png">
+            </a>
+        </footer>
+        <script>
+            const itemsPerPage = 5; // Change this to adjust items per page
+            let currentPage = 1;
+    
+            // Sample data (can be replaced with any content)
+            const items = [
+                {
+                    "name": "A new perspective on numbers",
+                    "href": "/posts/post-1.html"
+                }
+            ]
+    
+            function renderItems() {
+                const container = document.getElementById("posts-container");
+                container.innerHTML = ""; // Clear previous content
+                const start = (currentPage - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+    
+                items.slice(start, end).forEach((item, index) => {
+                    const div = document.createElement("div");
+                    const h = document.createElement("h3");
+                    const p = document.createElement("p");
+                    div.classList.add("post");
+
+                    h.textContent = item.name;
+                    p.textContent = `POST: ${index+1}`;
+
+                    div.appendChild(p);
+                    div.appendChild(h);
+
+                    // Add click event to navigate to href
+                    div.addEventListener("click", () => {
+                        window.location.href = item.href;
+                    });
+    
+                    container.appendChild(div);
+                });
+            }
+    
+            function renderPagination() {
+                const totalPages = Math.ceil(items.length / itemsPerPage);
+                const pageButtons = document.getElementById("page-buttons");
+                pageButtons.innerHTML = ""; // Clear previous buttons
+    
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement("button");
+                    btn.textContent = i;
+                    btn.classList.add("page-btn");
+                    if (i === currentPage) btn.classList.add("active");
+    
+                    btn.addEventListener("click", () => {
+                        currentPage = i;
+                        updatePagination();
+                    });
+    
+                    pageButtons.appendChild(btn);
+                }
+    
+                // Enable/Disable Prev & Next buttons
+                document.getElementById("prev").disabled = currentPage === 1;
+                document.getElementById("next").disabled = currentPage === totalPages;
+            }
+    
+            function updatePagination() {
+                renderItems();
+                renderPagination();
+            }
+    
+            document.getElementById("prev").addEventListener("click", () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updatePagination();
+                }
+            });
+    
+            document.getElementById("next").addEventListener("click", () => {
+                if (currentPage < Math.ceil(items.length / itemsPerPage)) {
+                    currentPage++;
+                    updatePagination();
+                }
+            });
+    
+            // Initialize the pagination
+            updatePagination();
+        </script>
+    </body>
 </html>
+
