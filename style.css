@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --content-width: 850px;
+    --top-margin: 30px;
+}
+
+body {
+    background-color: white;
+    font-family: "Montserrat", serif;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+}
+
+.about {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.about-div {
+    max-width: var(--content-width);
+    width: 100%;
+    background-color: aliceblue;
+    padding: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about-div p {
+    margin-top: var(--top-margin);
+    max-width: 500px;
+}
+
+.blog-description {
+    margin-top: 20px;
+}
+
+.blog-description .description {
+    max-width: var(--content-width);
+    text-align: justify;
+    text-justify: inter-word;
+    margin: auto;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    margin: var(--top-margin) 0;
+}
+
+.post {
+    max-width: var(--content-width);
+    width: 100%;
+    padding: 15px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(184, 184, 184, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(184, 184, 184, 1);
+    box-shadow: 0px 0px 5px 0px rgba(184, 184, 184, 1);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    cursor: pointer;
+}
+
+.post:hover {
+    color: rgb(23, 23, 164);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button.active {
+    background: #0056b3;
+}
+
+.pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
