@@ -11,7 +11,7 @@
 
 body {
     background-color: white;
-    font-family: "Montserrat", serif;
+    font-family: 'Times New Roman', Times, serif;
     display: grid;
     grid-template-rows: 1fr auto;
     min-height: 100vh;
@@ -101,6 +101,25 @@ body {
 .pagination button:disabled {
     background: #ccc;
     cursor: not-allowed;
+}
+
+.post-content {
+    padding: 100px 300px;
+}
+
+.post-content .main-heading {
+    font-size: 36px;
+}
+
+.post-content p {
+    margin: 20px 0px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+.post-content .sub-heading {
+    margin-top: 60px;
+    font-size: 28px;
 }
 
 footer {
