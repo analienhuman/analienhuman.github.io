@@ -138,3 +138,17 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 992px) {
+    .post-content {
+        padding: 100px 50px;
+    }
+    .post-content .main-heading {
+        font-size: 30px;
+    }
+
+    .about, .blog-description, .posts {
+        padding-inline: 20px;
+    }
+
+}
