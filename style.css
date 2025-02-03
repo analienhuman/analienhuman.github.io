@@ -15,7 +15,7 @@ body {
     display: grid;
     grid-template-rows: 1fr auto;
     min-height: 100vh;
-/*     user-select: none; */
+    user-select: none;
 }
 
 .about {
